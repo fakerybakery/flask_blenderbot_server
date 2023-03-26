@@ -4,6 +4,8 @@ from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
 print('[Starting pipeline]')
 tokenizer = BlenderbotTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 model = BlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
 @app.route('/')
 def api():
