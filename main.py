@@ -1,6 +1,7 @@
 print('[Importing modules]')
 from flask import Flask, request
 from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
+from flask_cors import CORS, cross_origin
 print('[Starting pipeline]')
 tokenizer = BlenderbotTokenizer.from_pretrained("facebook/blenderbot-400M-distill")
 app = Flask(__name__)
