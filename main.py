@@ -8,7 +8,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 model = BlenderbotForConditionalGeneration.from_pretrained("facebook/blenderbot-400M-distill")
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def api():
     if request.method == 'POST':
         formdata = request.form
